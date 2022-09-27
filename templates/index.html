@@ -23,7 +23,7 @@
         <div class="header_inner">
             <div class="left-side">
                 <!-- Logo -->
-                <div id="logo" class="uk-hidden@s">
+                <div id="logo" class="mr-2">
                     <a href="/"><b>
                             <h1 style="text-transform: uppercase;">OnConnect</h1>
                         </b></a>
@@ -33,7 +33,7 @@
                     <i class="uil-bars"></i>
                 </div>
 
-                <div class="header_search">
+                {% comment %} <div class="header_search">
                     <input type="text" placeholder="Search for username..">
                     <div class="icon-search">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,7 +41,7 @@
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                </div>
+                </div> {% endcomment %}
 
             </div>
             <div class="right-side lg:pr-4">
@@ -137,7 +137,7 @@
                         Notification </h4>
                     <ul class="dropdown_scrollbar" data-simplebar>
                         <li>
-                            <a href="#">
+                            <a href="/">
                                 <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}"
                                         alt="">
                                 </div>
@@ -152,12 +152,12 @@
 
 
                     </ul>
-                    <a href="#" class="see-all">See all</a>
+                    <a href="/" class="see-all">See all</a>
                 </div> {% endcomment %}
 
                 <!-- Messages -->
 
-                {% comment %} <a href="#" class="header-links-item">
+                {% comment %} <a href="/" class="header-links-item">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet"
                         viewBox="0 0 16 16">
@@ -172,7 +172,7 @@
                         Messages </h4>
                     <ul class="dropdown_scrollbar" data-simplebar>
                         <li>
-                            <a href="#">
+                            <a href="/">
                                 <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}"
                                         alt="">
                                 </div>
@@ -186,7 +186,7 @@
 
 
                     </ul>
-                    <a href="#" class="see-all">See all</a>
+                    <a href="/" class="see-all">See all</a>
                 </div> {% endcomment %}
 
                 <!-- profile -->
@@ -198,8 +198,7 @@
                 <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                     <ul>
                         <li><a href="/settings"> Account setting </a> </li>
-                        <li><a href="explore.html">explore </a> </li>
-                        <li><a href="#"> Help </a> </li>
+                        <li><a href="/profile/{{user}}">My Profile</a> </li>
                         <li><a href="/logout/"> Log Out</a></li>
                     </ul>
                 </div>
@@ -326,7 +325,7 @@
                                 </div>
 
                             </a> -->
-                            <a href="#" class="flex items-center space-x-2 flex-1 justify-end">
+                            <a href="/media/{{post.image}}" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 flex-1 justify-end">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     aria-hidden="true" role="img" width="25" height="25"
                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -408,7 +407,7 @@
 
                     <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
                         <h2 class="font-semibold text-lg">Users You Can Follow</h2>
-                        <a href="#"> Refresh</a>
+                        <a href="/"> Refresh</a>
                     </div>
 
                     <!-- follow suggestiona -->
@@ -452,10 +451,10 @@
     <div class="py-3 uk-link-reset mt-12" style="background-color: white;">
         <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
             <div class="flex space-x-2 text-gray-700 uppercase">
-                <a href="#"> About</a>
-                <a href="#"> Help</a>
-                <a href="#"> Terms</a>
-                <a href="#"> Privacy</a>
+                <a href="/"> About</a>
+                <a href="/"> Help</a>
+                <a href="/"> Terms</a>
+                <a href="/"> Privacy</a>
             </div>
             <p class="capitalize"> © copyright 2022 by OnConnect</p>
         </div>

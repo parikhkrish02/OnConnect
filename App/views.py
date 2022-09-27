@@ -16,7 +16,6 @@ from .models import FollowersCnt, Post, PostLike, Profile
 
 @login_required
 def index(request):
-
     user_following_list = []
     feed = []
 
