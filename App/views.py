@@ -187,6 +187,14 @@ def signUp(request):
         if username == "":
             messages.error(request, "Username Can't be Blank")
             return redirect('signUp')
+            
+        if password == "":
+            messages.error(request, "Password Can't be Blank")
+            return redirect('signUp')
+
+        if email == "":
+            messages.error(request, "Email Can't be Blank")
+            return redirect('signUp')
 
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email Id Already Exists !!!")
