@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_user = models.IntegerField()
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name="profile_user")
     bio = models.TextField(
         blank=True, default="Hey there, I am using OnConnect !!!")
     profile_img = models.ImageField(
@@ -18,28 +18,22 @@ class Profile(models.Model):
 
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    user = models.CharField(max_length=100)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="post_user")
     image = models.ImageField(upload_to='post_images')
     caption = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    likes = models.IntegerField(default=0)
+    likes = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
-        return self.user
-
-
-class PostLike(models.Model):
-    post_id = models.CharField(max_length=500)
-    username = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.username
+        return self.user.username
 
 
 class FollowersCnt(models.Model):
-    user = models.CharField(max_length=50)
-    follower = models.CharField(max_length=50)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="following")
+    follower = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="followers")
 
     def __str__(self):
-        return self.user 
-    
+        return self.user.username

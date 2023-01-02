@@ -40,19 +40,19 @@
 
 
 					{% if user_followers == 0 or user_followers == 1 %}
-					<span style="color: white; font-size: 27px;"><b>{{user_followers}} follower</b></span>
+					<a href="{{user_obj.username}}/followers" style="color: white; font-size: 20px;"><b>{{user_followers}} follower</b></a>
 					{% else %}
-					<span style="color: white; font-size: 27px;"><b>{{user_followers}} followers</b></span>
+					<a href="{{user_obj.username}}/followers" style="color: white; font-size: 20px"><b>{{user_followers}} followers</b></a>
 					{% endif %}
-					<span style="color: white; font-size: 27px;"><b>{{user_following}} following</b></span>			
-					
+					<a href="{{user_obj.username}}/following" style="color: white; font-size: 20px;"><b>{{user_following}} following</b></a>
+
 					<input type="hidden" value="{{user.username}}" name="follower">
 					<input type="hidden" value="{{user_obj.username}}" name="user">
 					{% if user_obj.username == user.username %}
-					<a href="/settings" data-ripple="">Settings</a>
+						<a href="/settings" data-ripple="">Settings</a>
 					{% else %}
-					<a data-ripple=""><button type="submit"
-							style="background-color: #ffc0cb; border: #ffc0cb;">{{button_text}}</button></a>
+					<button type="submit"
+							style="background-color: #ffc0cb; border: #ffc0cb; font-size: 15px;"><a data-ripple=""></a>{{button_text}}</a></button>
 					{% endif %}
 
 				</div>
@@ -112,7 +112,7 @@
 										</li>
 										{% endfor %}
 									</ul>
-									
+
 								</div><!-- photos -->
 							</div><!-- centerl meta -->
 							<div class="col-lg-3">
@@ -127,11 +127,6 @@
 		</div>
 	</section>
 
-
-
-	<script data-cfasync="false"
-		src="{% static '../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
-	<script src="js/main.min.js"></script>
 	<script src="{% static 'js/script.js' %}"></script>
 
 </body>

@@ -173,12 +173,12 @@
                                     </svg>
                                 </a>
                                 <p style="display: inline;">
-                                    {% if post.likes == 0 %}
+                                    {% if post.likes.count == 0 %}
                                     No Likes
-                                    {% elif post.likes == 1 %}
-                                    Liked by {{post.likes}} Person
+                                    {% elif post.likes.count == 1 %}
+                                    Liked by {{post.likes.count}} Person
                                     {% else %}
-                                    Liked by {{post.likes}} People
+                                    Liked by {{post.likes.count}} People
                                     {% endif %}
                                 </p>
                             </div>

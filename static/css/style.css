@@ -1092,7 +1092,7 @@ header.sticky {
 
 .add-btn > a:hover {
     border: 1px solid pink;
-    background-color: transparent !important;
+    background-color: blue !important;
     color: #000 !important;
 
 }
@@ -10037,5 +10037,3 @@ aside.sidebar.full-style {
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
-
-
